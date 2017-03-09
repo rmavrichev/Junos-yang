@@ -1,0 +1,47 @@
+module database-status-information {
+    namespace "urn:ietf:params:xml:ns:netconf:base:1.0";
+    prefix "junos";
+
+  revision "2017-03-07" {
+    description "Initial revision";
+  }
+
+  container database-status-information {
+        container database-status {
+        leaf user {
+          type string;
+          description
+            "user";
+        }
+        leaf terminal {
+          type string;
+          description
+            "terminal";
+        }
+        leaf pid {
+          type uint32 {
+              range "1..65535";
+          description
+            "pid";
+        }
+        leaf edit-path {
+          type string;
+          description
+            "edit-path";
+        }
+        leaf start-time {
+             units "seconds";
+             type uint32 {
+               range "0 .. 60000000";
+             }
+        }
+        leaf idle-time {
+             units "seconds";
+             type uint32 {
+               range "0 .. 60000000";
+             }
+        }
+      }
+    } 
+  }
+}
